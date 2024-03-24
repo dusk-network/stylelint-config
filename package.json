@@ -1,0 +1,48 @@
+{
+  "author": {
+    "name": "Dusk Network B.V.",
+    "url": "https://dusk.network/",
+    "mail": "info@dusk.network"
+  },
+  "bugs": "https://github.com/dusk-network/stylelint-config/issues/",
+  "contributors": [
+    "Kieran Hall <kieran@dusk.network>"
+  ],
+  "description": "Stylelint config used by Dusk",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "homepage": "https://github.com/dusk-network/stylelint-config/",
+  "keywords": [
+    "dusk",
+    "dusk network",
+    "stylelint",
+    "stylelintconfig"
+  ],
+  "license": "MPL-2.0",
+  "name": "@dusk-network/stylelint-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dusk-network/stylelint-config.git"
+  },
+  "scripts": {
+    "check": "npm run format && npm run lint",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "version": "1.0.0",
+  "devDependencies": {
+    "@dusk-network/eslint-config": "3.2.0",
+    "@dusk-network/prettier-config": "1.1.0",
+    "eslint": "8.57.0",
+    "prettier": "3.2.5",
+    "stylelint": "16.3.0",
+    "stylelint-selector-bem-pattern": "4.0.0"
+  },
+  "peerDependencies": {
+    "stylelint": ">=16.3.0",
+    "stylelint-selector-bem-pattern": ">=4.0.0"
+  }
+}
