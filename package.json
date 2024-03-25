@@ -32,19 +32,17 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "devDependencies": {
     "@dusk-network/eslint-config": "3.2.0",
     "@dusk-network/prettier-config": "1.1.0",
     "eslint": "8.57.0",
     "prettier": "3.2.5",
     "stylelint": "16.3.0",
-    "stylelint-config-standard": "36.0.0",
-    "stylelint-selector-bem-pattern": "4.0.0"
+    "stylelint-config-standard": "36.0.0"
   },
   "peerDependencies": {
     "stylelint": ">=16.3.0",
-    "stylelint-config-standard": ">=36.0.0",
-    "stylelint-selector-bem-pattern": ">=4.0.0"
+    "stylelint-config-standard": ">=36.0.0"
   }
 }
