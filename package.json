@@ -23,9 +23,13 @@
   "name": "@dusk-network/stylelint-config",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dusk-network/stylelint-config.git"
+    "url": "git+https://github.com/dusk-network/stylelint-config.git"
   },
   "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "check": "npm run format && npm run lint && npm run test",
     "format": "prettier . --check",
@@ -35,7 +39,7 @@
     "test": "npm run test:jest",
     "test:jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage false"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "devDependencies": {
     "@dusk-network/eslint-config": "3.3.1",
     "@dusk-network/prettier-config": "1.1.0",
