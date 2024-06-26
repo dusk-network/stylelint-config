@@ -26,6 +26,10 @@
     "url": "https://github.com/dusk-network/stylelint-config.git"
   },
   "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "check": "npm run format && npm run lint && npm run test",
     "format": "prettier . --check",
