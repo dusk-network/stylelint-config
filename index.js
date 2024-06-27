@@ -1,4 +1,4 @@
-import { browsers, propertyOrder } from "./lib/config";
+import { browsers, propertyOrder } from "./lib/config/index.js";
 
 export default {
   extends: ["stylelint-config-standard"],
