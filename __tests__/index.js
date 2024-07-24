@@ -29,6 +29,7 @@ describe("stylelint-config", () => {
           width: 10px;
           top: .2em;
           max-width: initial;
+          color: white;
         }
       `).then((data) => {
       expect(data).toHaveErrored();

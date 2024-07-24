@@ -13,7 +13,7 @@ export default {
     "at-rule-no-unknown": null,
     "block-no-empty": true,
     "color-function-notation": null,
-    "color-named": "never",
+    "color-named": "always-where-possible",
     "color-no-invalid-hex": true,
     "comment-no-empty": null,
     "custom-property-pattern": null,
