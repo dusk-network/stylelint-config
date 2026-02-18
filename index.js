@@ -16,6 +16,7 @@ export default {
     "color-named": "always-where-possible",
     "color-no-invalid-hex": true,
     "comment-no-empty": null,
+    "comment-word-disallowed-list": ["/\\b(?:fixme|todo)\\b/i"],
     "custom-property-pattern": null,
     "declaration-block-no-duplicate-properties": [
       true,

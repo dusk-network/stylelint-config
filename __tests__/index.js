@@ -1,15 +1,17 @@
 import { lint } from "../lib/testing";
 
 describe("stylelint-config", () => {
-  it("stylelint runs with our config", () => {
-    return lint(".uppercase { text-transform: uppercase; }").then((data) => {
-      expect(data).not.toHaveErrored();
-      expect(data).toHaveResultsLength(1);
-    });
+  it("stylelint runs with our config", async () => {
+    return await lint(".uppercase { text-transform: uppercase; }").then(
+      (data) => {
+        expect(data).not.toHaveErrored();
+        expect(data).toHaveResultsLength(1);
+      }
+    );
   });
 
-  it("produces zero warnings with valid css", () => {
-    return lint(`
+  it("produces zero warnings with valid css", async () => {
+    return await lint(`
       .selector-x { width: 10%; }
       .selector-y { width: 20%; }
       .selector-z { width: 30%; }
@@ -23,8 +25,8 @@ describe("stylelint-config", () => {
     });
   });
 
-  it("generates two warnings with invalid css props", () => {
-    return lint(`
+  it("generates two warnings with invalid css props", async () => {
+    return await lint(`
         .foo {
           width: 10px;
           top: .2em;
@@ -41,7 +43,7 @@ describe("stylelint-config", () => {
     });
   });
 
-  it("generates warnings with invalid BEM selectors", () => {
+  it("generates warnings with invalid BEM selectors", async () => {
     return lint(`
         .foo__bar__baz {
           width: 10px;
@@ -58,5 +60,27 @@ describe("stylelint-config", () => {
       expect(data).toHaveErrored();
       expect(data).toHaveWarningsLength(3);
     });
+  });
+
+  it("should disallow warning comments", async () => {
+    const addNewlinePatterns = (patterns) =>
+      patterns.flatMap((pattern) => [pattern, pattern.replace(/\s+/g, "\n")]);
+    const warningWords = ["TODO", "todo", "toDo", "FIXME", "fixme", "fiXme"];
+    const wrongPatterns = warningWords.flatMap((w) =>
+      addNewlinePatterns([
+        `/* ${w} foo */`,
+        `/* foo ${w} */`,
+        `/* foo ${w} bar */`,
+      ])
+    );
+
+    for (const wrongPattern of wrongPatterns) {
+      await lint(wrongPattern).then((data) => {
+        expect(data).toHaveErrored();
+        expect(data).toHaveWarningsLength(1);
+      });
+    }
+
+    expect.assertions(wrongPatterns.length * 2);
   });
 });
